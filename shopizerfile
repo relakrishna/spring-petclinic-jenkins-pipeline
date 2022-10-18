@@ -1,0 +1,20 @@
+pipeline {
+    agent {label "OPENJDK-11-2"}
+    triggers {
+        pollSCM('* * * * *')
+    }
+    stages {
+        stage('pull from vcs') {
+            steps {
+                 git url:https://github.com/shopizer-ecommerce/shopizer.git,
+                 branch: 'shopizer'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+        
+    }
+}
