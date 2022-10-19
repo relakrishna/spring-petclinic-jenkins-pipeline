@@ -1,0 +1,58 @@
+provider "aws" {
+    region      = "us-east-1"
+}
+resource “aws_vpc” “prod-vpc” {
+    cidr_block = “10.0.0.0/16”,  
+    
+    tags {
+        Name = “prod-vpc”
+    }
+}
+resource “aws_subnet” “subnet1” {
+    vpc_id = “aws_vpc.prod-vpc.id”
+    cidr_block = “10.0.1.0/24”
+    availability_zone = “us-east-1a”
+    tags {
+        Name = “subnet1”
+    }
+}
+resource “aws_subnet” “subnet2” {
+    vpc_id = “aws_vpc.prod-vpc.id”
+    cidr_block = “10.0.2.0/24”
+    availability_zone = “us-east-1b”
+    tags {
+        Name = “subnet2”
+    }
+}
+resource “aws_subnet” “subnet3” {
+    vpc_id = “aws_vpc.prod-vpc.id”
+    cidr_block = “10.0.3.0/24”
+    availability_zone = “us-east-1c”
+    tags {
+        Name = “subnet3”
+    }
+}
+resource “aws_subnet” “subnet4” {
+    vpc_id = “aws_vpc.prod-vpc.id”
+    cidr_block = “10.0.4.0/24”
+    availability_zone = “us-east-1d”
+    tags {
+        Name = “subnet4”
+    }
+}
+resource “aws_subnet” “subnet5” {
+    vpc_id = “aws_vpc.prod-vpc.id”
+    cidr_block = “10.0.5.0/24”
+    availability_zone = “us-east-1e”
+    tags {
+        Name = “subnet5”
+    }
+}
+resource “aws_subnet” “subnet6” {
+    vpc_id = “aws_vpc.prod-vpc.id”
+    cidr_block = “10.0.6.0/24”
+    availability_zone = “us-east-1f”
+    tags {
+        Name = “subnet6”
+    }
+}

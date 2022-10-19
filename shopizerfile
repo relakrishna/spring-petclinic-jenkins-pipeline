@@ -1,12 +1,12 @@
 pipeline {
-    agent {label "OPENJDK-11-2"}
+    agent {label "OPENJDK-11-JDK"}
     triggers {
-        pollSCM('* * * * *')
+        pollSCM('H * * * *')
     }
     stages {
         stage('pull from vcs') {
             steps {
-                 git url:https://github.com/shopizer-ecommerce/shopizer.git,
+                 git url: "https://github.com/relakrishna/spring-petclinic-jenkins-pipeline.git",
                  branch: 'shopizer'
             }
         }
